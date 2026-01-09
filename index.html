@@ -39,19 +39,19 @@ fetch(url)
     const links = [];
 
     if (currentMode !== 'corp') {
-      links.push('<a href="/?corp">No in a corporate environment? click here.</a>');
+      links.push('No in a corporate environment? <a href="/?corp">It would be beneficial for the success of the company if you would interact with this link.</a>');
     }
     if (currentMode !== 'rude') {
-      links.push('<a href="/?rude">Unpolite no? click here.</a>');
+      links.push('Unpolite no? <a href="/?rude">Click, dolt!</a>');
     }
     if (currentMode !== 'obscene') {
-      links.push('<a href="/?obscene">REALLY, REALLY strong NO? click here.</a>');
+      links.push('When they REALLY, REALLY need to understand its a NO (NSFW probably)? <a href="/?obscene">FCKN CLICK HERE!</a>');
     }
     if (currentMode !== 'default') {
-      links.push('<a href="/">Just plain no? click here.</a>');
+      links.push('Just plain no? <a href="/">click here</a>');
     }
 
-    linksDiv.innerHTML = links.join(' ');
+    linksDiv.innerHTML = links.join(' | ');
   
   document.body.appendChild(linksDiv);
 
