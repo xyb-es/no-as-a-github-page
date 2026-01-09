@@ -37,21 +37,21 @@ fetch(url)
 
   const linksDiv = document.createElement('div');
     const links = [];
-
+    links.push('<ul>')
     if (currentMode !== 'corp') {
-      links.push('No in a corporate environment? <a href="/?corp">It would be beneficial for the success of the company if you would interact with this link.</a>');
+      links.push('<li>No in a corporate environment? <a href="/?corp">It would be beneficial for the success of the company if you would interact with this link.</a></li>');
     }
     if (currentMode !== 'rude') {
-      links.push('Unpolite no? <a href="/?rude">Click, dolt!</a>');
+      links.push('<li>Unpolite no? <a href="/?rude">Click, dolt!</a></li>');
     }
     if (currentMode !== 'obscene') {
-      links.push('When they REALLY, REALLY need to understand its a NO (NSFW probably)? <a href="/?obscene">FCKN CLICK HERE!</a>');
+      links.push('<li>When they REALLY, REALLY need to understand its a NO (NSFW probably)? <a href="/?obscene">FCKN CLICK HERE!</a></li>');
     }
     if (currentMode !== 'default') {
-      links.push('Just plain no? <a href="/">click here</a>');
+      links.push('<li>Just plain no? <a href="/">click here</a></li>');
     }
-
-    linksDiv.innerHTML = links.join(' | ');
+    links.push('</ul>')
+    linksDiv.innerHTML = links.join();
   
   document.body.appendChild(linksDiv);
 
