@@ -7,9 +7,51 @@
 </head>
 <body>
 <script>
-fetch('https://raw.githubusercontent.com/hotheadhacker/no-as-a-service/refs/heads/main/reasons.json')
+const params = new URLSearchParams(window.location.search);
+const base = 'https://xyb-es.github.io/no-as-a-github-page/';
+let url = 'https://raw.githubusercontent.com/hotheadhacker/no-as-a-service/refs/heads/main/reasons.json';
+let currentMode = 'default';
+
+if (params.has('rude')) {
+  url = base + 'rude-reasons.json';
+  currentMode = 'rude';
+} else if (params.has('corp')) {
+  url = base + 'corporate-reasons.json';
+  currentMode = 'corp';
+} else if (params.has('obscene')) {
+  url = base + 'obscene-reasons.json';
+  currentMode = 'obscene';
+}
+
+fetch(url)
   .then(r => r.json())
-  .then(d => document.body.textContent = d[Math.floor(Math.random() * d.length)]);
+  .then(d => {
+    const reason = d[Math.floor(Math.random() * d.length)];
+    const reasonDiv = document.createElement('div');
+    reasonDiv.textContent = reason;
+    reasonDiv.style.marginBottom = '20px';
+
+    const linksDiv = document.createElement('div');
+    const links = [];
+
+    if (currentMode !== 'corp') {
+      links.push('<a href="/?corp">No in a corporate environment? click here.</a>');
+    }
+    if (currentMode !== 'rude') {
+      links.push('<a href="/?rude">Unpolite no? click here.</a>');
+    }
+    if (currentMode !== 'obscene') {
+      links.push('<a href="/?obscene">REALLY, REALLY strong NO? click here.</a>');
+    }
+    if (currentMode !== 'default') {
+      links.push('<a href="/">Just plain no? click here.</a>');
+    }
+
+    linksDiv.innerHTML = links.join(' ');
+
+    document.body.appendChild(reasonDiv);
+    document.body.appendChild(linksDiv);
+  });
 </script>
 </body>
 </html>
