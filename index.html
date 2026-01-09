@@ -39,16 +39,16 @@ fetch(url)
     const links = [];
     links.push('<ul>')
     if (currentMode !== 'corp') {
-      links.push('<li>No in a corporate environment? <a href="/?corp">It would be beneficial for the success of the company if you would interact with this link.</a></li>');
+      links.push('<li>No in a corporate environment? <a href="https://xyb-es.github.io/no-as-a-github-page/?corp">It would be beneficial for the success of the company if you would interact with this link.</a></li>');
     }
     if (currentMode !== 'rude') {
-      links.push('<li>Unpolite no? <a href="/?rude">Click, dolt!</a></li>');
+      links.push('<li>Unpolite no? <a href="https://xyb-es.github.io/no-as-a-github-page//?rude">Click, dolt!</a></li>');
     }
     if (currentMode !== 'obscene') {
-      links.push('<li>When they REALLY, REALLY need to understand its a NO (NSFW probably)? <a href="/?obscene">FCKN CLICK HERE!</a></li>');
+      links.push('<li>When they REALLY, REALLY need to understand its a NO (NSFW probably)? <a href="https://xyb-es.github.io/no-as-a-github-page//?obscene">FCKN CLICK HERE!</a></li>');
     }
     if (currentMode !== 'default') {
-      links.push('<li>Just plain no? <a href="/">click here</a></li>');
+      links.push('<li>Just plain no? <a href="https://xyb-es.github.io/no-as-a-github-page/">click here</a></li>');
     }
     links.push('</ul>')
     linksDiv.innerHTML = links.join();
