@@ -31,7 +31,11 @@ fetch(url)
     reasonDiv.textContent = reason;
     reasonDiv.style.marginBottom = '20px';
 
-    const linksDiv = document.createElement('div');
+    document.body.appendChild(reasonDiv);
+  
+  });
+
+  const linksDiv = document.createElement('div');
     const links = [];
 
     if (currentMode !== 'corp') {
@@ -48,10 +52,9 @@ fetch(url)
     }
 
     linksDiv.innerHTML = links.join(' ');
+  
+  document.body.appendChild(linksDiv);
 
-    document.body.appendChild(reasonDiv);
-    document.body.appendChild(linksDiv);
-  });
 </script>
 </body>
 </html>
