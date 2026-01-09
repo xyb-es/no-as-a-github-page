@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No</title>
+</head>
+<body>
+<script>
+fetch('https://raw.githubusercontent.com/hotheadhacker/no-as-a-service/refs/heads/main/reasons.json')
+  .then(r => r.json())
+  .then(d => document.body.textContent = d[Math.floor(Math.random() * d.length)]);
+</script>
+</body>
+</html>
